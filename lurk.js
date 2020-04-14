@@ -4,9 +4,10 @@ const Raspistill = require('node-raspistill').Raspistill;
 const PIN_PIR=7;       // GPIO 4
 const POLL_DELAY=8000;
 const CAM_DELAY=100;
+const OUTPUTDIR='/media/usb-drive/photos';
 
 const camera = new Raspistill({
-    // outputDir: '',
+    outputDir: OUTPUTDIR,
     awb: 'auto',
     time: CAM_DELAY,
     width: 800,
