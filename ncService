@@ -1,0 +1,19 @@
+#!/bin/sh
+#/etc/init.d/ncService
+export PATH=$PATH:/home/pi/.nvm/versions/node/v8.17.0/bin
+export NODE_PATH=$NODE_PATH:/home/pi/dev/naturecam/node_modules
+export SOURCEDIR=/home/pi/dev/naturecam
+
+case "$1" in
+start)
+exec forever --sourceDir=$SOURCEDIR -p $SOURCEDIR lurk.js  #scriptarguments
+;;
+stop)
+exec forever stop --sourceDir=/home/pi/dev/naturecam lurk.js
+;;
+*)
+echo "Usage: /etc/init.d/ncService {start|stop}"
+exit 1
+;;
+esac
+exit 0
